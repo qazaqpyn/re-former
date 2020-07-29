@@ -14,7 +14,7 @@
     <input name="commit" type="submit" value="Submit">
 </form>
 
-<h1> Railsy Forms with #form_tag </h1>
+<h1> Railsy Forms with #form_tag(disabled) </h1>
  <%= form_tag("/users", method: "post") do%>
  <%=label_tag(:username,"Username:")%>
  <%=text_field_tag(:username)%>
@@ -25,4 +25,16 @@
  <%=label_tag(:password,"Password:")%>
  <%=password_field_tag(:password)%> <br> <br>
  <%=submit_tag("Submit")%>
+ <%end%>
+
+ <h1> Railsy-er Forms with #form_for </h1>
+ <%= form_for @user, url:"/users", method:"post" do |f|%>
+ <%=render 'form'%>
+ <%=f.label :username%>
+ <%=f.text_field :username, placeholder:"your username here"%>
+ <%=f.label :email%>
+ <%=f.email_field :email%>
+ <%=f.label :password%>
+ <%=f.password_field :password%> <br><br>
+ <%=f.submit%>
  <%end%>

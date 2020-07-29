@@ -1,0 +1,10 @@
+<%= form_for @user, url:"/users", method: "patch" do |f|%>
+<%= render 'form'%>
+ <%=f.label :username%>
+ <%=f.text_field :username, placeholder:"your username here"%>
+ <%=f.label :email%>
+ <%=f.email_field :email%>
+ <%=f.label :password%>
+ <%=f.password_field :password%> <br><br>
+ <%=f.submit%>
+ <%end%>
